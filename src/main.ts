@@ -7,10 +7,10 @@ dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PORT || 3000;
-  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3001';
+  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
 
   app.enableCors({
-    origin: frontendUrl,
+    origin: [frontendUrl, 'http://localhost:3000'],
     credentials: true,
   });
 
